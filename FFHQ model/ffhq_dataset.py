@@ -5,9 +5,9 @@ import os
 import torch
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-DATASET_PATH = '/content/drive/My Drive/Datasets/FFHQ'
-TRAIN_SIZE = 900
-TEST_SIZE = 100
+DATASET_PATH = 'C:/Users/athar/MLprojects/dataloader_task/Datasets/FFHQ'
+TRAIN_SIZE = 256
+TEST_SIZE = 32
 NOISE_FACTOR = 0.1
 
 class FFHQDataSet(Dataset):
@@ -15,7 +15,8 @@ class FFHQDataSet(Dataset):
         self.dataset_path = dataset_path
         self.transform = transform
         self.noise_factor = noise_factor
-        self.len = len(os.listdir(dataset_path))
+        self.len = 288
+        # self.len = len(os.listdir(dataset_path))
     def __len__(self):
         return self.len
     def __getitem__(self, idx):
